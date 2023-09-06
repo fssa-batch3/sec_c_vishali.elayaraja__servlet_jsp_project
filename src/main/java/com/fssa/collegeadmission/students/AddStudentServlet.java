@@ -20,7 +20,6 @@ public class AddStudentServlet extends HttpServlet {
 			throws ServletException, IOException {
 		try {
 			// Collect student data from request parameters
-//			String applicationNo = request.getParameter("applicationNo");
 			String firstName = request.getParameter("firstName");
 			String lastName = request.getParameter("lastName");
 			String gender = request.getParameter("gender");
@@ -34,7 +33,6 @@ public class AddStudentServlet extends HttpServlet {
 
 			// Create a Student object
 			Student student = new Student();
-//			student.setApplicationNo(applicationNo);
 			student.setFirstName(firstName);
 			student.setLastName(lastName);
 			student.setGender(gender);
@@ -44,7 +42,7 @@ public class AddStudentServlet extends HttpServlet {
 			student.setMobileNumber(mobileNumber);
 			PrintWriter out = response.getWriter();
 			// Call the addStudent method to add the student to the database
-			boolean success = StudentService.addStudent(student, "CEO");
+			boolean success = StudentService.addStudent(student, "department");
 
 			if (success) {
 				out.println("Student added successfully.");

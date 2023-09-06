@@ -1,6 +1,7 @@
 package com.fssa.collegeadmission.students;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.fssa.collage.admission.app.dao.StudentDAO;
 import com.fssa.collage.admission.app.exception.DAOException;
 import com.fssa.collage.admission.app.exception.InvalidStudentException;
+import com.fssa.collage.admission.app.service.StudentService;
 
 /**
  * Servlet implementation class DeleteServlet
@@ -35,7 +37,7 @@ public class DeleteServlet extends HttpServlet {
 		int id = Integer.parseInt(request.getParameter("id"));
 		
 		try {
-			StudentDAO.removeStudent(id);
+			 StudentService.removeStudent(id);
 			response.getWriter().append("Sucess");
 		} catch (DAOException | InvalidStudentException e) {
 			response.getWriter().append(e.getMessage());
