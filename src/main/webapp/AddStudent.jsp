@@ -54,7 +54,7 @@
 </head>
 <body>
 	<h1>Registration Form</h1>
-	<form action="AddStudentServlet1" method="post" class="container">
+	<form action="AddStudent" method="post" class="container">
 		<label for="firstName">First Name:</label>
 		<input type="text" id="firstName" name="firstName"><br><br>
 
@@ -90,7 +90,7 @@
 		<label for="mobileNumber">Mobile Number:</label>
 		<input type="number" id="mobileNumber" name="mobileNumber"><br><br>
 
-		<button type="submit">Add Student</button>
+		<button type="submit">Apply</button>
 	</form>
 </body>
 </html>

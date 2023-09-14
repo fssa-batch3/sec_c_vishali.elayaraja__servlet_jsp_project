@@ -26,6 +26,7 @@
 				<th>Gender</th>
 				<th>Date of Birth</th>
 				<th>Email</th>
+				<th>Mobile Number</th>
 				<th>Status</th>
 				<th>Actions</th>
 			</tr>
@@ -40,11 +41,13 @@
 				<td><%=student.getGender()%></td>
 				<td><%=student.getDob()%></td>
 				<td><%=student.getEmailId()%></td>
-				<td><%=student.getIsActive() ? "Active" : "Inactive"%></td>
-				<td><a href="Edit?email=<%=student.getEmailId()%>"
-					class="button edit">Edit</a> <a
-					href="DeleteServlet?id=<%=student.getId()%>" class="button delete">Delete</a>
-				</td>
+				<td><%=student.getMobileNumber()%></td>
+				<td><%=student.getStatus() %></td>
+				<td><a
+					href="Edit?action=accept&email=<%=student.getEmailId()%>"
+					class="button edit">Accept</a> <a
+					href="Edit?action=reject&email=<%=student.getEmailId()%>"
+					class="button delete">Reject</a></td>
 			</tr>
 			<%
 			}
@@ -95,7 +98,7 @@ body {
 
 .sidebar a:hover {
 	background-color: #72ddf7;
-	color:white;
+	color: white;
 }
 
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);

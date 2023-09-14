@@ -42,7 +42,7 @@ public class UpdateServlet extends HttpServlet {
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 		long mobileNumber = Long.parseLong(request.getParameter("mobileNumber"));
-
+		StudentService studentService = new StudentService();
 		Student student = new Student();
 		student.setDob(dob);
 		student.setEmailId(email);
@@ -52,7 +52,7 @@ public class UpdateServlet extends HttpServlet {
 		student.setPassword(password);
 		student.setMobileNumber(mobileNumber);
 		try {
-			StudentService.updateStudent(student);
+			studentService.updateStudent(student);
 		} catch (InvalidStudentException | DAOException e) {
 			e.printStackTrace();
 		}

@@ -9,12 +9,23 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import com.fssa.collage.admission.app.model.Student;
 import com.fssa.collage.admission.app.service.StudentService;
 
-@WebServlet("/AddStudentServlet1")
+@WebServlet("/AddStudent")
 public class AddStudentServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+
+	/**
+	 * Handles the HTTP POST request for adding a new student.
+	 *
+	 * @param request  The HttpServletRequest containing student data.
+	 * @param response The HttpServletResponse for sending the response.
+	 * @throws ServletException If the servlet encounters a servlet-specific
+	 *                          problem.
+	 * @throws IOException      If an I/O error occurs while handling the request.
+	 */
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -32,6 +43,7 @@ public class AddStudentServlet extends HttpServlet {
 			LocalDate dob = LocalDate.parse(dobString);
 
 			// Create a Student object
+			StudentService studentService = new StudentService();
 			Student student = new Student();
 			student.setFirstName(firstName);
 			student.setLastName(lastName);
@@ -41,8 +53,8 @@ public class AddStudentServlet extends HttpServlet {
 			student.setPassword(password);
 			student.setMobileNumber(mobileNumber);
 			PrintWriter out = response.getWriter();
-			// Call the addStudent method to add the student to the database
-			boolean success = StudentService.addStudent(student, "department");
+			// Call the addStudent method to add the student to the Service layer
+			boolean success = studentService.addStudent(student, "department");
 
 			if (success) {
 				out.println("Student added successfully.");

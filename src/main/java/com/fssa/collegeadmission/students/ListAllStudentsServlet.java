@@ -9,9 +9,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import com.fssa.collage.admission.app.dao.StudentDAO;
 import com.fssa.collage.admission.app.model.Student;
+import com.fssa.collage.admission.app.service.StudentService;
 
 @WebServlet("/ViewStudentsServlet")
 public class ListAllStudentsServlet extends HttpServlet {
@@ -21,13 +20,14 @@ public class ListAllStudentsServlet extends HttpServlet {
             throws ServletException, IOException {
         try {
             // Call the getAllStudent method to retrieve the list of students
-            List<Student> studentList = StudentDAO.getAllStudent();
-
+            List<Student> studentList;
+				studentList = StudentService.getAllStudent();
+			
             // Set the studentList as an attribute in the request
             request.setAttribute("studentList", studentList);
 
             // Forward the request to a JSP for displaying the list
-            RequestDispatcher dispatcher = request.getRequestDispatcher("ListAllStudent.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("admin.jsp");
             dispatcher.forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
