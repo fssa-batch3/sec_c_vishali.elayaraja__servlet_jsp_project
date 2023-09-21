@@ -19,8 +19,6 @@ import com.fssa.collage.admission.app.service.StudentService;
 public class SearchServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-
-
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -28,19 +26,18 @@ public class SearchServlet extends HttpServlet {
 		String search = request.getParameter("search");
 
 		StudentService studenttservice = new StudentService();
-		Student stu = new Student();
-		String firstname = stu.getFirstName();
 
 		try {
 
-			List<Student> student = studenttservice.findStudentByName(firstname, search);
+			List<Student> student = studenttservice.findStudentByName(search);
 			request.setAttribute("studentList", student);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
-		request.getRequestDispatcher("./ListAllStudent.jsp").forward(request, response);
+		request.getRequestDispatcher("./admin.jsp").forward(request, response);
 
 	}
 
 }
+

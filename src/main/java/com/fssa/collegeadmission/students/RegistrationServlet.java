@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.time.LocalDate;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,9 +13,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.fssa.collage.admission.app.model.Student;
 import com.fssa.collage.admission.app.service.StudentService;
+import com.fssa.collage.admission.app.util.Logger;
 
-@WebServlet("/AddStudent")
-public class AddStudentServlet extends HttpServlet {
+/**
+ * Servlet implementation class RegistrationServlet
+ */
+@WebServlet("/RegistrationServlet")
+public class RegistrationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -29,19 +34,31 @@ public class AddStudentServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+	
+	
 		try {
 			// Collect student data from request parameters
+			long mobileNumber = Long.parseLong(request.getParameter("mobileNumber"));
 			String firstName = request.getParameter("firstName");
 			String lastName = request.getParameter("lastName");
 			String gender = request.getParameter("gender");
 			String dobString = request.getParameter("dob"); // Assuming the date format is yyyy-MM-dd
 			String emailId = request.getParameter("email");
 			String password = request.getParameter("password");
-			String department = request.getParameter("department");
-			long mobileNumber = Long.parseLong(request.getParameter("mobileNumber"));
+			String confirmPassword = request.getParameter("confirmpass");
+		
+			
+		
+			if (!password.equals(confirmPassword)) {
+				Logger.info("Password and confirm password doesn't match");
+				RequestDispatcher rd = request.getRequestDispatcher("./registration.jsp");
+				rd.forward(request, response);
+			} 
 
 			// Parse dob from String to LocalDate
 			LocalDate dob = LocalDate.parse(dobString);
+
+
 
 			// Create a Student object
 			StudentService studentService = new StudentService();
@@ -55,16 +72,17 @@ public class AddStudentServlet extends HttpServlet {
 			student.setMobileNumber(mobileNumber);
 			PrintWriter out = response.getWriter();
 			// Call the addStudent method to add the student to the Service layer
-			boolean success = studentService.addStudent(student, department);
+			boolean success = StudentService.studentRegisteration(student);
 
 			if (success) {
-				out.println("Student added successfully.");
+				out.println("Successfully Created an account");
 			} else {
-				out.println("Failed to add student.");
+				out.println("Failed to Create an account.");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 			response.getWriter().write("An error occurred: " + e.getMessage());
 		}
 	}
+
 }

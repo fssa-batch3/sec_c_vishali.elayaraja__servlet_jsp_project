@@ -6,19 +6,22 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>collegeAdmissionApp</title>
 <link rel="stylesheet" href="./admin.css">
 </head>
 <body>
 
 	<div class="sidebar">
 		<h1>Admin</h1>
-		<a href="#" autofocus>Dashboard</a> <a href="AddStudent.jsp">Apply</a>
-		<a href="#">Settings</a> <a href="#">Log Out</a>
+		<a href="ViewStudentsServlet" autofocus>Dashboard</a> <a
+			href="AddStudent.jsp">Apply</a> <a href="#">Settings</a> <a href="#">Log
+			Out</a>
 	</div>
 
 	<div class="input-group">
-		<input type="search" placeholder="Search Data...">
+		<form action="SearchServletByName" method="GET">
+			<input type="search" placeholder="Search Data..." name="search">
+		</form>
 		<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40"
 			height="30" viewBox="0 0 50 50">
             <path
@@ -33,7 +36,6 @@
 					adipiscing elit.</p>
 			</div>
 		</div>
-
 
 		<div class="cards"></div>
 
@@ -70,22 +72,47 @@
 						<td><strong><%=student.getMobileNumber()%></strong></td>
 						<td><%=student.getEmailId()%></td>
 						<td><%=student.getStatus()%></td>
-						<td><a
-							href="Edit?action=accept&email=<%=student.getEmailId()%>"
+							<%if(student.getStatus().equals("pending")){ %>
+						
+						<td><a href="Edit?action=accept&email=<%=student.getEmailId()%>"
 							class="button edit" id="acceptButton">Accept</a> <a
 							href="Edit?action=reject&email=<%=student.getEmailId()%>"
 							class="button delete" id="rejectButton">Reject</a></td>
+							<%}else{ %>
+							<td>Request <%=student.getStatus() %>ed </td>
+							<%} %>
 					</tr>
 					<%
 					}
 					} else {
 					%>
 					<tr>
-						<td colspan="7">No students found.</td>
+						<%
+						List<Student> student = (List<Student>) request.getAttribute("findStudent");
+						if (student != null) {
+							for (Student e : student) {
+						%>
+					
+					<tr>
+						<td><%=e.getFirstName()%></td>
+						<td><%=e.getLastName()%></td>
+						<td><%=e.getGender()%></td>
+						<td><%=e.getDob()%></td>
+						<td><strong><%=e.getMobileNumber()%></strong></td>
+						<td><%=e.getEmailId()%></td>
+						<td><%=e.getStatus()%></td>
+					
 					</tr>
 					<%
 					}
+					}
 					%>
+
+
+					<%
+					}
+					%>
+
 				</tbody>
 			</table>
 		</section>
@@ -96,13 +123,10 @@
         document.getElementById('rejectButton').disabled = true;
 
         // Get the value and store it in student status (you'll need a way to fetch the status)
-        <%
-        
-        if (studentList != null && !studentList.isEmpty()) {
-	for (Student e : studentList) {
-	
-	%>
-        const status = '<%=e.getStatus()%>';		
+        <%if (studentList != null && !studentList.isEmpty()) {
+	for (Student e : studentList) {%>
+        const status = '<%=e.getStatus()%>
+		';
 	<%}
 }%>
 		// Assuming you want to update the status in a <td> element with the id 'statusCell'

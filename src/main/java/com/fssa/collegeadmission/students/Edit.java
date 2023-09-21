@@ -40,14 +40,15 @@ public class Edit extends HttpServlet {
 		String email = request.getParameter("email");
 		String action = request.getParameter("action");
 		StudentService ss = new StudentService();
+
 		try {
 			if ("accept".equals(action)) {
 
-				ss.updatingStatusOfStudent(email, true);
+				ss.updatingStatusOfStudent(email, "Accept");
 				response.sendRedirect("ViewStudentsServlet");
 			} else {
 
-				ss.updatingStatusOfStudent(email, false);
+				ss.updatingStatusOfStudent(email, "Reject");
 				response.sendRedirect("ViewStudentsServlet");
 			}
 		} catch (InvalidStudentException | DAOException e) {
