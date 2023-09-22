@@ -38,7 +38,7 @@
 						<input type="password" class="input" name="password" id="password">
 					</div>
 				</div>
-				<span class="Signup-btn">No account?</span> <a href="#">Sign up</a>
+				<span class="Signup-btn">No account?</span> <a href="./registration.jsp">Sign up</a>
 				<input type="submit" class="btn" value="Login">
 			</form>
 		</div>

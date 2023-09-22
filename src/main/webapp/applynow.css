@@ -1,3 +1,4 @@
+@charset "ISO-8859-1";
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
 * {
   margin: 0;
@@ -5,7 +6,6 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
-
 body {
   min-height: 97vh;
   display: flex;
@@ -14,10 +14,18 @@ body {
   padding: 20px;
   background:#fff;
 }
+select{
+    width: 100%;
+    margin-top: 20px;
+    padding:15px ;
+    color: #333;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
 
 #circle {
   border-radius: 50%;
-  background: linear-gradient(135deg, transparent 20%, hsl(170, 75%, 41%));
+  background: linear-gradient(135deg, transparent 20%, #00b4d8);
   position: absolute;
   z-index: 2;
 }
@@ -49,7 +57,7 @@ body {
 }
 .container header {
   font-size: 1.5rem;
-  color: hsl(171, 38%, 28%);
+  color: #0d8097;
   font-weight: 500;
   text-align: center;
 }
@@ -101,7 +109,7 @@ body {
   column-gap: 5px;
 }
 .gender input {
-  accent-color: hsl(171, 31%, 33%);
+  accent-color: #00b4d8;
 }
 .form :where(.gender input, .gender label) {
   cursor: pointer;
@@ -109,7 +117,9 @@ body {
 .gender label {
   color: #707070;
 }
-
+.address :where(input, .select-box) {
+  margin-top: 15px;
+}
 .select-box select {
   height: 100%;
   width: 100%;
@@ -128,10 +138,17 @@ body {
   border: none;
   cursor: pointer;
   transition: all 0.2s ease;
-  background: hsl(171, 43%, 37%);
+  background: #00b4d8;
 }
 .form button:hover {
-  background:hsl(170, 32%, 44%);
+  background:#2fd6f7;
+}
+.exit span{
+  position: absolute;
+  right: 160vh;
+  top:2vh;
+  font-size: 100px;
+  cursor: pointer;
 }
 
 .big-circle {
@@ -139,7 +156,7 @@ body {
   width: 500px;
   height: 500px;
   border-radius: 50%;
-  background: linear-gradient(to bottom, hsl(180, 59%, 56%),hsl(171, 38%, 64%));
+  background: linear-gradient(to bottom, #1bcaed, #00b4d8);
   bottom: 50%;
   right: 50%;
   transform: translate(-40%, 38%);
@@ -156,6 +173,8 @@ body {
   top: calc(50% - 180px);
   left: calc(50% - 180px);
 }
+
+
 .square {
   position: absolute;
   height: 400px;

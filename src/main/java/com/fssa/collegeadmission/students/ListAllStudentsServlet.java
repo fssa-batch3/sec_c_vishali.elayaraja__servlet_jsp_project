@@ -25,6 +25,7 @@ public class ListAllStudentsServlet extends HttpServlet {
 			
             // Set the studentList as an attribute in the request
             request.setAttribute("studentList", studentList);
+            System.out.println(studentList);
 
             // Forward the request to a JSP for displaying the list
             RequestDispatcher dispatcher = request.getRequestDispatcher("admin.jsp");

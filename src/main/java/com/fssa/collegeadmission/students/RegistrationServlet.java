@@ -81,8 +81,9 @@ public class RegistrationServlet extends HttpServlet {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			response.getWriter().write("An error occurred: " + e.getMessage());
+			
 		}
+		response.sendRedirect(request.getContextPath() + "/login.jsp");
 	}
 
 }
