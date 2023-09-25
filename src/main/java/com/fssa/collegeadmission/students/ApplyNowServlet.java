@@ -1,6 +1,7 @@
 package com.fssa.collegeadmission.students;
 import java.lang.CharSequence;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import javax.servlet.ServletException;
@@ -51,9 +52,18 @@ public class ApplyNowServlet extends HttpServlet {
 		student.setGender(gender);
 		student.setLastName(lastName);
 		student.setMobileNumber(mobileNumber);
+		
+		PrintWriter out = response.getWriter();
+		
 		try {
 			
 			 StudentService.addStudent(student, department);
+			 out.println("Success");
+			 out.flush();
+			 out.close();
+			 response.sendRedirect("./index.jsp");
+			 
+			 
 		} catch (InvalidStudentException | SQLException | DAOException e) {
 			e.printStackTrace();
 		}

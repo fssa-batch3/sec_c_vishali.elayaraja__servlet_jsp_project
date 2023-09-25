@@ -2,6 +2,7 @@ package com.fssa.collegeadmission.students;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 import java.time.LocalDate;
 
 import javax.servlet.RequestDispatcher;
@@ -11,6 +12,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.fssa.collage.admission.app.exception.DAOException;
+import com.fssa.collage.admission.app.exception.InvalidStudentException;
 import com.fssa.collage.admission.app.model.Student;
 import com.fssa.collage.admission.app.service.StudentService;
 import com.fssa.collage.admission.app.util.Logger;
@@ -79,11 +82,14 @@ public class RegistrationServlet extends HttpServlet {
 			} else {
 				out.println("Failed to Create an account.");
 			}
-		} catch (Exception e) {
-			e.printStackTrace();
-			
-		}
-		response.sendRedirect(request.getContextPath() + "/login.jsp");
+		}	catch (DAOException | SQLException |InvalidStudentException e) {
+				e.printStackTrace();
+				request.setAttribute("ErrorMessage", e.getMessage());
+				RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/registration.jsp");
+				dispatcher.forward(request, response);
+				
+				
 	}
 
+}
 }

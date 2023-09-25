@@ -7,6 +7,8 @@
 <link rel="stylesheet" href="./contactus.css">
 <title>Insert title here</title>
 </head>
+<body>
+<main>
  <div class="container">
       <span class="big-circle"></span>
       <img src="https://iili.io/JJAAPwb.png" class="square" alt="icon" />

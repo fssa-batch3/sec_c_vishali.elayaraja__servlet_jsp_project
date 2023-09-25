@@ -47,7 +47,7 @@
 					</div>
 					<div class="gender">
 						<input type="radio" id="check-female" name="gender" value="Female" />
-						<label for="check-female">Female</label>
+						<label for="check-female">female</label>
 					</div>
 					<div class="gender">
 						<input type="radio" id="check-other" name="gender" value="others" />
@@ -64,6 +64,36 @@
 					type="password" placeholder="Re-enter your Password"
 					name="confirmpass" required />
 			</div><br>
+			
+			<%
+        String successmessage=(String)request.getAttribute("Successmessage");
+        String errormessage=(String)request.getAttribute("ErrorMessage");
+        
+        %>
+        
+        <%
+        
+        if(successmessage!=null){
+        
+        %>
+            
+        <p><%=successmessage %></p>
+           <%
+        
+        }%>
+         <%
+        
+        
+           if(errormessage!=null){
+        
+        %>
+            
+        <p><%=errormessage %></p>
+           <%
+           
+        }
+         
+        %>
         <div class="input-box">
           <span class="Signup-btn">Already have an account?</span>
           <a href="./login.jsp">Login</a>
@@ -71,6 +101,8 @@
 			<button type="submit">Submit</button>
 		</form>
 	</div>
+	
+	
 	<script src="../assets/jspages/contact.js"></script>
 </body>
 </html>

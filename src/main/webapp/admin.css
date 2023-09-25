@@ -169,6 +169,7 @@ body {
 .card:hover:after {
   transform: translateX(100%);
 }
+
 main.table {
   width: 81vw;
   height: 75vh;

@@ -34,11 +34,10 @@ public class DeleteServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		StudentService studentService = new StudentService();
-		int id = Integer.parseInt(request.getParameter("id"));
+		String email = (String)request.getParameter("email");
 
 		try {
-			studentService.removeStudent(id);
+			StudentService.removeStudent(email,false);
 			response.getWriter().append("Sucess");
 		} catch (DAOException | InvalidStudentException e) {
 			response.getWriter().append(e.getMessage());

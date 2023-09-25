@@ -35,18 +35,16 @@ public class UpdateServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String firstName = request.getParameter("firstName");
-		String lastName = request.getParameter("lastName");
-		String gender = request.getParameter("gender");
-		LocalDate dob = LocalDate.parse(request.getParameter("dob"));
-		String email = request.getParameter("email");
-		long mobileNumber = Long.parseLong(request.getParameter("mobileNumber"));
+		String firstName = request.getParameter("user-firstname");
+		String lastName = request.getParameter("user-lastname");
+		String email = request.getParameter("user-email");
+		String phoneNumber = request.getParameter("user-number");
+
+		long mobileNumber = Long.parseLong(phoneNumber);
 		StudentService studentService = new StudentService();
 		Student student = new Student();
-		student.setDob(dob);
 		student.setEmailId(email);
 		student.setFirstName(firstName);
-		student.setGender(gender);
 		student.setLastName(lastName);
 		student.setMobileNumber(mobileNumber);
 		try {

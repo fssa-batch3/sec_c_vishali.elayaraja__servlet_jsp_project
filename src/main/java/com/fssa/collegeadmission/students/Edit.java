@@ -37,19 +37,21 @@ public class Edit extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		String email = request.getParameter("email");
+		int id = Integer.parseInt(request.getParameter("id"));
 		String action = request.getParameter("action");
-		StudentService ss = new StudentService();
 
 		try {
 			if ("accept".equals(action)) {
 
-				ss.updatingStatusOfStudent(email, "Accept");
+				StudentService.updatingStatusOfStudent(id, "Accept");
+				response.sendRedirect("ViewStudentsServlet");
+			} else if ("reject".equals(action)) {
+
+				StudentService.updatingStatusOfStudent(id, "Reject");
 				response.sendRedirect("ViewStudentsServlet");
 			} else {
-
-				ss.updatingStatusOfStudent(email, "Reject");
-				response.sendRedirect("ViewStudentsServlet");
+				StudentService.updatingStatusOfStudent(id, "Cancelled");
+				response.sendRedirect("./history.jsp");
 			}
 		} catch (InvalidStudentException | DAOException e) {
 			e.printStackTrace();

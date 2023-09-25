@@ -14,12 +14,12 @@
   <header class="header" data-header>
     <div class="container">
       <a href="#" class="logo">
-        <img src="./assets/images/logo.svg" width="162" height="50" alt="logo">
+        <img src="https://iili.io/JJAL0vf.png" width="70" height="70" alt="logo">
       </a>
       <nav class="navbar" data-navbar>
         <div class="wrapper">
           <a href="#" class="logo">
-            <img src="./assets/images/logo.svg" width="162" height="50" alt="EduWeb logo">
+            <img src="https://iili.io/JJAL0vf.png" width="70" height="70" alt="EduWeb logo">
           </a>
           <button class="nav-close-btn" aria-label="close menu" data-nav-toggler>
             <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
@@ -52,7 +52,7 @@
   <main>
     <article>
       <section class="section hero has-bg-image" id="home" aria-label="home"
-        style="background-image: url('../assets/images/hero-bg.svg')">
+        style="background-image: url('./hero-bg.svg')">
         <div class="container">
           <div class="hero-content">
             <h1 class="h1 section-title">
@@ -61,7 +61,7 @@
             <p class="hero-text">
               Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit.
             </p>
-            <a href="../pages/register.html" class="btn has-before">
+            <a href="./login.jsp" class="btn has-before">
               <span class="span">Apply now</span>
               <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
             </a>
@@ -118,24 +118,138 @@
         </div>
       </section>
 
-      <section class="section course" id="courses" aria-label="course">
+       <section class="section course" id="courses" aria-label="course">
         <div class="container">
 
-          <p class="section-subtitle">Courses We Offer</p>
+          <p class="section-subtitle">Courses We Offer </p>
 
           <h2 class="h2 section-title">Pick A Course To Get Started</h2>
 
           <ul class="grid-list">
 
             <li>
-            
+              <div class="course-card">
+
+                <figure class="card-banner img-holder" style="--width: 370; --height: 220;">
+                  <img src="https://iili.io/JJAp5Na.jpg" width="370" height="220" loading="lazy"
+                    alt="Build Responsive Real- World Websites with HTML and CSS" class="img-cover">
+                </figure>
+
+
+
+                <div class="card-content">
+
+
+                  <h3 class="h3">
+                    <a href="#" class="card-title">Computer Science Engineering</a>
+                  </h3>
+
+                  <ul class="card-meta-list">
+
+                    <li class="card-meta-item">
+                      <ion-icon name="library-outline" aria-hidden="true"></ion-icon>
+
+                      <span class="span">8 Lessons</span>
+                    </li>
+
+                    <li class="card-meta-item">
+                      <ion-icon name="people-outline" aria-hidden="true"></ion-icon>
+
+                      <span class="span">20 Students</span>
+                    </li>
+
+                  </ul>
+
+                </div>
+
+              </div>
             </li>
 
+            <li>
+              <div class="course-card">
+
+                <figure class="card-banner img-holder" style="--width: 370; --height: 220;">
+                  <img src="https://iili.io/JJAmn2t.jpg" width="370" height="220" loading="lazy"
+                    alt="Java Programming Masterclass for Software Developers" class="img-cover">
+                </figure>
+
+
+                <div class="card-content">
+
+
+                  <h3 class="h3">
+                    <a href="#" class="card-title"> Electronics and Communication Engineering</a>
+                  </h3>
+
+                  <div class="wrapper">
+
+                  </div>
+
+                  <ul class="card-meta-list">
+
+                    <li class="card-meta-item">
+
+                      <span class="span">15 Lessons</span>
+                    </li>
+
+                    <li class="card-meta-item">
+
+                      <span class="span">35 Students</span>
+                    </li>
+
+                  </ul>
+
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="course-card">
+
+                <figure class="card-banner img-holder" style="--width: 370; --height: 220;">
+                  <img src="https://iili.io/JJAbJWl.jpg" width="370" height="220" loading="lazy"
+                    alt="The Complete Camtasia Course for Content Creators" class="img-cover">
+                </figure>
+
+               
+
+                <div class="card-content">
+
+        
+                  <h3 class="h3">
+                    <a href="#" class="card-title">Electrical and Electronics Engineering</a>
+                  </h3>
+
+                  <div class="wrapper">
+
             
+                  </div>
+
+
+                  <ul class="card-meta-list">
+
+                    <li class="card-meta-item">
+
+                      <span class="span">13 Lessons</span>
+                    </li>
+
+                    <li class="card-meta-item">
+
+                      <span class="span">18 Students</span>
+                    </li>
+
+                  </ul>
+
+                </div>
+
+              </div>
+            </li>
+
           </ul>
-      
         </div>
       </section>
+
       <!-- 
         - #ABOUT
       -->
@@ -146,11 +260,11 @@
           <figure class="about-banner">
 
             <div class="img-holder" style="--width: 520; --height: 370;">
-              <img src="../assets/images/group-diverse-grads-throwing-caps-up-sky.jpg" width="520" height="370" loading="lazy" alt="about banner"
+              <img src="./abt-img.jpg" width="520" height="370" loading="lazy" alt="about banner"
                 class="img-cover">
             </div>
           
-            <img src="../assets/images/about-shape-3.png" width="722" height="528" loading="lazy" alt=""
+            <img src="./about-shape-3.png" width="722" height="528" loading="lazy" alt=""
               class="shape about-shape-3">
 
           </figure>
@@ -190,9 +304,6 @@
               </li>
 
             </ul>
-
-            <img src="../assets/images/about-shape-4.svg" width="100" height="100" loading="lazy" alt=""
-              class="shape about-shape-4">
 
           </div>
 

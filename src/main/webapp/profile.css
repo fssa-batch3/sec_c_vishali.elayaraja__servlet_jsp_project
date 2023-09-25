@@ -120,6 +120,14 @@ main{
             height: 900px;
             /* margin-top: 3%; */
         }
+        .information-username span{
+             color:var(--main-color);
+        
+        }
+          .information-usernam{
+             text-align:center;
+        
+        }
         #align-num{
             display: flex;
             flex-direction: column;
