@@ -37,8 +37,7 @@ public class RegistrationServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-	
-	
+
 		try {
 			// Collect student data from request parameters
 			long mobileNumber = Long.parseLong(request.getParameter("mobileNumber"));
@@ -49,19 +48,15 @@ public class RegistrationServlet extends HttpServlet {
 			String emailId = request.getParameter("email");
 			String password = request.getParameter("password");
 			String confirmPassword = request.getParameter("confirmpass");
-		
-			
-		
+
 			if (!password.equals(confirmPassword)) {
 				Logger.info("Password and confirm password doesn't match");
 				RequestDispatcher rd = request.getRequestDispatcher("./registration.jsp");
 				rd.forward(request, response);
-			} 
+			}
 
 			// Parse dob from String to LocalDate
 			LocalDate dob = LocalDate.parse(dobString);
-
-
 
 			// Create a Student object
 			StudentService studentService = new StudentService();
@@ -78,18 +73,19 @@ public class RegistrationServlet extends HttpServlet {
 			boolean success = StudentService.studentRegisteration(student);
 
 			if (success) {
-				out.println("Successfully Created an account");
+
+
+				 response.sendRedirect("./login.jsp");
 			} else {
 				out.println("Failed to Create an account.");
 			}
-		}	catch (DAOException | SQLException |InvalidStudentException e) {
-				e.printStackTrace();
-				request.setAttribute("ErrorMessage", e.getMessage());
-				RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/registration.jsp");
-				dispatcher.forward(request, response);
-				
-				
-	}
+		} catch (DAOException | SQLException | InvalidStudentException e) {
+			e.printStackTrace();
+			request.setAttribute("ErrorMessage", e.getMessage());
+			RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/registration.jsp");
+			dispatcher.forward(request, response);
 
-}
+		}
+
+	}
 }

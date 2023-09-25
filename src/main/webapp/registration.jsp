@@ -63,46 +63,67 @@
 				<label for="password2">Confirm Password</label> <input
 					type="password" placeholder="Re-enter your Password"
 					name="confirmpass" required />
-			</div><br>
-			
+			</div>
+			<br>
+
 			<%
-        String successmessage=(String)request.getAttribute("Successmessage");
-        String errormessage=(String)request.getAttribute("ErrorMessage");
-        
-        %>
-        
-        <%
-        
-        if(successmessage!=null){
-        
-        %>
-            
-        <p><%=successmessage %></p>
-           <%
-        
-        }%>
-         <%
-        
-        
-           if(errormessage!=null){
-        
-        %>
-            
-        <p><%=errormessage %></p>
-           <%
-           
-        }
-         
-        %>
-        <div class="input-box">
-          <span class="Signup-btn">Already have an account?</span>
-          <a href="./login.jsp">Login</a>
-        </div>
+			String successmessage = (String) request.getAttribute("Successmessage");
+			String errormessage = (String) request.getAttribute("ErrorMessage");
+			%>
+
+			<%
+			if (successmessage != null) {
+			%>
+
+			<p><%=successmessage%></p>
+			<%
+			}
+			%>
+			<%
+			if (errormessage != null) {
+			%>
+
+			<p style="color: red"><%=errormessage%></p>
+			<%
+			}
+			%>
+			<div class="input-box">
+				<span class="Signup-btn">Already have an account?</span> <a
+					href="./login.jsp">Login</a>
+			</div>
 			<button type="submit">Submit</button>
 		</form>
 	</div>
-	
-	
+<script>
+function validateInput(inputElement) {
+    // Get the input value
+    const inputValue = inputElement.value;
+    
+    // Check if the input contains dots or spaces
+    if (inputValue.includes('.') || inputValue.includes(' ')) {
+        // Display an error message (you can customize this part)
+        alert("Input should not contain dots or spaces.");
+        
+        // Clear the input field
+        inputElement.value = '';
+        
+        // Prevent form submission
+        return false;
+    }
+    
+    // If the input is valid, return true
+    return true;
+}
+
+function validateForm() {
+    // You can add more validation here if needed
+    
+    // Return true to allow form submission
+    return true;
+}
+</script>
+
+
 	<script src="../assets/jspages/contact.js"></script>
 </body>
 </html>

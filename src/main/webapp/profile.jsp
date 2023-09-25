@@ -31,7 +31,7 @@
 						autofocus><span class="fa-solid fa-circle-user"></span> <span>My
 								Profile</span></a></li>
 					<li><a href="./history.jsp" class="active" id="order_history1"><span
-							class="fa-solid fa-bag-shopping"></span> <span>History</span></a></li>
+							class="fa-solid fa-bag-shopping"></span> <span>Applications</span></a></li>
 
 					<li><a href="./LogOutServlet" id="log" class="active"><span
 							class="fa-solid fa-right-from-bracket"></span> <span id="log">Logout</span></a>
@@ -98,11 +98,13 @@
 							<div class="exit"></div>
 							<button type="submit" id="save-btn" class="name">Save</button>
 						</form>
+						
+						<button id="edit-btn" class="name">Edit</button>
+						
 						<form action="DeleteServlet?email=<%=student.getEmailId()%>"
 							method="post">
 							<button type="submit" id="delete-btn" class="name">delete</button>
 						</form>
-						<button id="edit-btn" class="name">Edit</button>
 					</div>
 				</div>
 			</main>

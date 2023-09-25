@@ -68,9 +68,11 @@
 						%>
 
 						<td><a href="Edit?action=accept&id=<%=student.getId()%>"
-							class="button edit" id="acceptButton">Accept</a> <br> <a
-							href="Edit?action=reject&id=<%=student.getId()%>"
-							class="button delete" id="rejectButton">Reject</a></td>
+							class="button edit" id="acceptButton">Accept</a> 
+							<br> 
+							<a href="Edit?action=reject&id=<%=student.getId()%>"
+							class="button delete" id="rejectButton">Reject</a>							
+							</td>
 						<%
 						} else {
 						%>
@@ -131,5 +133,7 @@
 							document.getElementById('statusCell').textContent = status;
 						});
 	</script>
+	
+	
 </body>
 </html>

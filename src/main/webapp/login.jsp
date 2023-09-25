@@ -8,27 +8,6 @@
 <title>Login</title>
 </head>
 <body>
-
-		<%
-		String errorMsg = (String) request.getParameter("error");
-		if (errorMsg != null) {
-		%>
-		<p class="errormsg"
-			style="position: relative; left: 165px; top: -30px; color: red; font-weight: bold;"><%=errorMsg%></p>
-		<%
-		}
-		%>
-
-		<%
-		String errorMsg2 = (String) request.getParameter("error2");
-		if (errorMsg2 != null) {
-		%>
-		<p class="errormsg2"
-			style="position: relative; left: 200px; top: 80px; color: red; font-weight: bold;"><%=errorMsg2%></p>
-		<%
-		}
-		%>
-		
 	<img class="wave" src="https://i.ibb.co/MGj24Qd/wave-haikei.png"
 		alt="wave-haikei">
 	<div class="container">
@@ -47,7 +26,7 @@
 					</div>
 					<div class="div">
 						<h5>Email</h5>
-						<input type="email" class="input" name="email" id="email">
+						<input type="email" class="input" name="email" id="email" required>
 					</div>
 				</div>
 				<div class="input-div pass">
@@ -56,13 +35,37 @@
 					</div>
 					<div class="div">
 						<h5>Password</h5>
-						<input type="password" class="input" name="password" id="password">
+						<input type="password" class="input" name="password" id="password"
+							required="required">
 					</div>
 				</div>
+				<%
+				String successmessage = (String) request.getAttribute("Successmessage");
+				String errormessage = (String) request.getAttribute("ErrorMessage");
+				%>
+
+				<%
+				if (successmessage != null) {
+				%>
+
+				<p><%=successmessage%></p>
+				<%
+				}
+				%>
+				<%
+				if (errormessage != null) {
+				%>
+
+				<p style="color: red"><%=errormessage%></p>
+				<%
+				}
+				%>
+
 				<span class="Signup-btn">No account?</span> <a
 					href="./registration.jsp">Sign up</a> <input type="submit"
 					class="btn" value="Login">
 			</form>
+
 
 		</div>
 	</div>

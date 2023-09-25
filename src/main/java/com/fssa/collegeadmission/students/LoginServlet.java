@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.fssa.collage.admission.app.dao.StudentDAO;
 import com.fssa.collage.admission.app.exception.DAOException;
 import com.fssa.collage.admission.app.exception.InvalidStudentException;
 import com.fssa.collage.admission.app.model.Student;
@@ -26,79 +25,33 @@ public class LoginServlet extends HttpServlet {
 			throws ServletException, IOException {
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
-		PrintWriter out = response.getWriter();
+		HttpSession session = request.getSession();
 		if (email.equals("admin@gmail.com") && password.equals("Admin@123")) {
 			response.sendRedirect("./admin.jsp");
 		} else {
 			try {
-				// Check if login is successful
-				Student s = StudentService.findStudentByEmail(email);
-				if (s.isActive() && StudentService.login(email, password)) {
-					// If logged in, set session attribute and redirect to admin.jsp
-					HttpSession session = request.getSession();
+				Student student = StudentService.findStudentByEmail(email);
+				System.out.println(student);
+				System.out.println(student.isActive());
+				System.out.println(password);
+				System.out.println(student.getPassword());
+				if (student != null && student.isActive() && password.equals(student.getPassword())) {
+					session.setAttribute("email", email);
+					
 					session.setAttribute("LoggedStudent", email);
+					
 					response.sendRedirect("./home.jsp");
 				} else {
-					out.append("email or password is  invalid");
+					request.setAttribute("ErrorMessage", "Invalid email or password");
+					RequestDispatcher rd = request.getRequestDispatcher("./login.jsp");
+					rd.forward(request, response);
 				}
-			} catch (DAOException | InvalidStudentException | SQLException e) {
-				out.append(e.getMessage());
+			} catch (InvalidStudentException | DAOException | SQLException e) {
+				request.setAttribute("ErrorMessage", e.getMessage());
+				RequestDispatcher rd = request.getRequestDispatcher("./login.jsp");
+				rd.forward(request, response);
 			}
+
 		}
 	}
-
 }
-
-
-//protected void doPost(HttpServletRequest request, HttpServletResponse response)
-//		throws ServletException, IOException {
-//	
-//	StudentService studentService = new StudentService();
-//
-//	String email = request.getParameter("email");
-//	String password = request.getParameter("password");
-//
-//	PrintWriter out = response.getWriter();
-//
-//	Student users = new Student();
-//	users.setEmailId(email);
-//	users.setPassword(password);
-//
-//	try {
-//
-//		if (StudentService.login(email, password)) {
-//			StudentDAO studentDao = new StudentDAO();
-//			HttpSession session = request.getSession(true);
-//			Student userss = StudentDAO.findStudentByEmail(users.getEmailId());
-//	     	session.setAttribute("userss",userss);
-//			session.setAttribute("email", email);
-//			session.setAttribute("loggedInSuccess", true);
-//			request.getRequestDispatcher("pages/home.jsp").forward(request, response);
-//		}else {
-//			StudentDAO studentDao = new StudentDAO();
-//			
-//			Student s = StudentService.findStudentByEmail(email);
-//	        if (!StudentDAO.checkStudentExists(email) && s.isActive() ) {
-//	        	
-//	        	RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher ("/login.jsp?error=Invalid Email");
-//	        	dispatcher.forward(request, response);
-//	        } 
-//			response.sendRedirect(request.getContextPath() + "/login.jsp?error2=Invalid Password");
-//		}
-//
-//	} catch (DAOException | InvalidStudentException | SQLException e) {
-//			e.printStackTrace();
-//			
-////		response.sendRedirect("/login.jsp?error=" + e.getMessage());
-//		
-//		// RequestDispatcher dispatcher =
-//		// request.getRequestDispatcher(request.getContextPath() + "/pages/login.jsp");
-//		// dispatcher.forward(request, response);
-//		// e.printStackTrace();
-//
-//	}
-//
-//}
-//
-//}
-

@@ -61,7 +61,7 @@
             <p class="hero-text">
               Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit.
             </p>
-            <a href="./login.jsp" class="btn has-before">
+            <a href="./applynow.jsp" class="btn has-before">
               <span class="span">Apply now</span>
               <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
             </a>

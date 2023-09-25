@@ -50,7 +50,7 @@ public class Edit extends HttpServlet {
 				StudentService.updatingStatusOfStudent(id, "Reject");
 				response.sendRedirect("ViewStudentsServlet");
 			} else {
-				StudentService.updatingStatusOfStudent(id, "Cancelled");
+				StudentService.updatingStatusOfStudent(id, "Cancel");
 				response.sendRedirect("./history.jsp");
 			}
 		} catch (InvalidStudentException | DAOException e) {

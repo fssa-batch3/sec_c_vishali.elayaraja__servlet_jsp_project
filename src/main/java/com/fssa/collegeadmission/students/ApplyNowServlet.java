@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.time.LocalDate;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -59,13 +61,16 @@ public class ApplyNowServlet extends HttpServlet {
 			
 			 StudentService.addStudent(student, department);
 			 out.println("Success");
-			 out.flush();
-			 out.close();
-			 response.sendRedirect("./index.jsp");
+//			 out.flush();
+//			 out.close();
+			 response.sendRedirect("./history.jsp");
 			 
 			 
 		} catch (InvalidStudentException | SQLException | DAOException e) {
 			e.printStackTrace();
+			request.setAttribute("ErrorMessage", "Already Exists");
+			RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/applynow.jsp");
+			dispatcher.forward(request, response);
 		}
 	}
 

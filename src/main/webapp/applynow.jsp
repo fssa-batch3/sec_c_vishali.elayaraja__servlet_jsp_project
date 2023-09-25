@@ -80,8 +80,33 @@
 							<option value="mech">MECH</option>
 						</select>
 					</div>
+					<br>
+					<%
+					String successmessage = (String) request.getAttribute("Successmessage");
+					String errormessage = (String) request.getAttribute("ErrorMessage");
+					%>
+
+					<%
+					if (successmessage != null) {
+					%>
+
+					<p><%=successmessage%></p>
+					<%
+					}
+					%>
+					<%
+					if (errormessage != null) {
+					%>
+
+					<p style="color: red; text-align: center"><%=errormessage%></p>
+					<%
+					}
+					%>
+
+
 					<button type="submit">Apply now</button>
 				</div>
+
 			</form>
 		</div>
 		<div class="exit">
