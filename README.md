@@ -35,6 +35,6 @@ The College Admission App makes it easy for students to apply to college and let
 | Column         | Type         | Null | Key | Default      | Extra          |
 |----------------|--------------|------|-----|--------------|----------------|
 | id             | int          | NO   | PRI |auto_increment|                |
-| student_id     | int          | NO   | MUL |              |                |
+| student_id     | int          | NO   | MUL |              |   CONSTRAINT student_dept_uni UNIQUE (student_id,department_id)             |
 | department_id  | int          | NO   | MUL |              |                |
 | is_active      | boolean      | NO   |     | 1            |                |
