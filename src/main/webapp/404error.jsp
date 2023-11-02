@@ -5,7 +5,7 @@
 <html>
 <head>
 <title>Error Page</title>
-<link rel="stylesheet" href="./error.css">
+<link rel="stylesheet" href="./assets/css/error.css">
 </head>
 <body>
 	<img src="https://iili.io/JJGPqWg.jpg" alt="pg not found img">

@@ -7,7 +7,7 @@
 <head>
 <meta charset="ISO-8859-1">
 
-<link rel="stylesheet" href="./profile.css">
+<link rel="stylesheet" href="./assets/css/profile.css">
 <title>Insert title here</title>
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
@@ -32,12 +32,13 @@
 								Profile</span></a></li>
 					<li><a href="./history.jsp" class="active" id="order_history1"><span
 							class="fa-solid fa-bag-shopping"></span> <span>Applications</span></a></li>
+					<li><a href="./home.jsp" class="active"><span
+							class="fa-solid fa-left-long"></span> <span>back to home</span></a></li>
 
 					<li><a href="./LogOutServlet" id="log" class="active"><span
 							class="fa-solid fa-right-from-bracket"></span> <span id="log">Logout</span></a>
 					</li>
-					<li><a href="./home.jsp" class="active"><span
-							class="fa-solid fa-left-long"></span> <span>Exit</span></a></li>
+					
 
 				</ul>
 			</div>
@@ -98,9 +99,9 @@
 							<div class="exit"></div>
 							<button type="submit" id="save-btn" class="name">Save</button>
 						</form>
-						
+
 						<button id="edit-btn" class="name">Edit</button>
-						
+
 						<form action="DeleteServlet?email=<%=student.getEmailId()%>"
 							method="post">
 							<button type="submit" id="delete-btn" class="name">delete</button>
@@ -119,9 +120,9 @@
 		let phoneNumber = document.getElementById("user-number");
 		let edit_btn = document.getElementById("edit-btn");
 		let save_btn = document.getElementById("save-btn");
-
+		save_btn.style.display = "none";
 		edit_btn.addEventListener("click", function() {
-
+			save_btn.style.display = "blocK";
 			firstName.removeAttribute("readonly");
 			lastName.removeAttribute("readonly");
 			phoneNumber.removeAttribute("readonly");

@@ -27,7 +27,7 @@ public class LoginServlet extends HttpServlet {
 		String password = request.getParameter("password");
 		HttpSession session = request.getSession();
 		if (email.equals("admin@gmail.com") && password.equals("Admin@123")) {
-			response.sendRedirect("./admin.jsp");
+			response.sendRedirect("ViewStudentsServlet");
 		} else {
 			try {
 				Student student = StudentService.findStudentByEmail(email);
@@ -37,9 +37,9 @@ public class LoginServlet extends HttpServlet {
 				System.out.println(student.getPassword());
 				if (student != null && student.isActive() && password.equals(student.getPassword())) {
 					session.setAttribute("email", email);
-					
+
 					session.setAttribute("LoggedStudent", email);
-					
+
 					response.sendRedirect("./home.jsp");
 				} else {
 					request.setAttribute("ErrorMessage", "Invalid email or password");

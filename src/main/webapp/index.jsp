@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+d<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="./index.css">
+<link rel="stylesheet" href="./assets/css/index.css">
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
@@ -52,11 +52,11 @@
   <main>
     <article>
       <section class="section hero has-bg-image" id="home" aria-label="home"
-        style="background-image: url('./hero-bg.svg')">
+        style="background-image: url('./assets/img/hero-bg.svg')">
         <div class="container">
           <div class="hero-content">
             <h1 class="h1 section-title">
-              The Best Program to <span class="span">Enroll</span> for Exchange
+               Your future starts here<span class="span">Apply</span> for Exchange
             </h1>
             <p class="hero-text">
               Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit.
@@ -260,11 +260,11 @@
           <figure class="about-banner">
 
             <div class="img-holder" style="--width: 520; --height: 370;">
-              <img src="./abt-img.jpg" width="520" height="370" loading="lazy" alt="about banner"
+              <img src="./assets/img/abt-img.jpg" width="520" height="370" loading="lazy" alt="about banner"
                 class="img-cover">
             </div>
           
-            <img src="./about-shape-3.png" width="722" height="528" loading="lazy" alt=""
+            <img src="./assets/img/about-shape-3.png" width="722" height="528" loading="lazy" alt=""
               class="shape about-shape-3">
 
           </figure>
@@ -323,7 +323,7 @@
         <div class="footer-brand">
 
           <a href="#" class="logo">
-            <img src="./assets/images/logo-light.svg" width="162" height="50" alt="EduWeb logo">
+            <img src="https://iili.io/JJAL0vf.png" width="162" height="50" alt="EduWeb logo">
           </a>
 
           <p class="footer-brand-text">

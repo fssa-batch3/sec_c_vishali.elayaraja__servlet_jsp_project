@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ page import="java.util.*"%>
@@ -7,7 +8,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>collegeAdmissionApp</title>
-<link rel="stylesheet" href="./admin.css">
+<link rel="stylesheet" href="./assets/css/admin.css">
 </head>
 <body>
 
@@ -28,7 +29,23 @@
             </svg>
 	</div>
 
+
 	<main class="table">
+		<form >
+			<div class="input-box">
+				<label for="department">Department</label> <select name="department"
+					id="selection" required>
+
+					<option value="cse">CSE</option>
+					<option value="ece">ECE</option>
+					<option value="eee">EEE</option>
+					<option value="mech">MECH</option>
+				</select>
+				<button id="result_button" type="submit">get</button>
+			</div>
+			
+		</form>
+
 		<section class="table__body">
 			<table>
 				<thead>
@@ -45,16 +62,16 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<%
-						List<Student> studentList = (List<Student>) request.getAttribute("studentList");
-						System.out.println(studentList);
 
-						if (studentList != null && !studentList.isEmpty()) {
-							for (Student student : studentList) {
-						%>
+					<%
+					List<Student> studentList = (List<Student>) request.getAttribute("studentList");
+					System.out.println(studentList);
 
+					if (studentList != null && !studentList.isEmpty()) {
+						for (Student student : studentList) {
+					%>
 
+					<tr id="list">
 						<td><%=student.getFirstName()%></td>
 						<td><%=student.getLastName()%></td>
 						<td><%=student.getGender()%></td>
@@ -68,11 +85,9 @@
 						%>
 
 						<td><a href="Edit?action=accept&id=<%=student.getId()%>"
-							class="button edit" id="acceptButton">Accept</a> 
-							<br> 
-							<a href="Edit?action=reject&id=<%=student.getId()%>"
-							class="button delete" id="rejectButton">Reject</a>							
-							</td>
+							class="button edit" id="acceptButton">Accept</a> <br> <a
+							href="Edit?action=reject&id=<%=student.getId()%>"
+							class="button delete" id="restart" restart>Reject</a></td>
 						<%
 						} else {
 						%>
@@ -103,6 +118,7 @@
 						<td><%=e.getEmailId()%></td>
 						<td><strong><%=e.getDepartment()%></strong></td>
 						<td><%=e.getStatus()%></td>
+						<td>Request <%=e.getStatus()%>ed</td>
 
 					</tr>
 					<%
@@ -133,7 +149,7 @@
 							document.getElementById('statusCell').textContent = status;
 						});
 	</script>
-	
-	
+
+
 </body>
 </html>

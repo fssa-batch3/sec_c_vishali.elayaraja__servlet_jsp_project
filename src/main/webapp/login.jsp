@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="./login.css">
+<link rel="stylesheet" href="./assets/css/login.css">
 <meta charset="ISO-8859-1">
 <title>Login</title>
 </head>
@@ -71,7 +71,7 @@
 	</div>
 
 	<script src="vendor/jquery/jquery.min.js"></script>
-	<script type="text/javascript" src="./login.js"></script>
+	<script type="text/javascript" src="./assets/js/login.js"></script>
 
 </body>
 </html>

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link rel="stylesheet" href="./contactus.css">
+<link rel="stylesheet" href="./assets/css/contactus.css">
 <title>Insert title here</title>
 </head>
 <body>
@@ -81,6 +81,6 @@
         </div>
       </div>
     </div>
-    <script src="../assets/jspages/contact.js"></script>
+    <script src="../assets/js/contact.js"></script>
   </body>
 </html>

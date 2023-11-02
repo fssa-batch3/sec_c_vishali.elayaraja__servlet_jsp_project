@@ -5,7 +5,7 @@
 <html>
 <head>
 
-<link rel="stylesheet" href="./error.css">
+<link rel="stylesheet" href="./assets/css/error.css">
 <meta charset="ISO-8859-1">
 <title>Error Page</title>
 </head>
